@@ -31,7 +31,11 @@ int Division(int n1, int n2) {
 }
 
 int main() {
+    // Nuestras variables de trabajo para las operaciones
     int num1, num2, opc, res;
+
+    // Limpiamos la pantalla para mantener estático el menú
+    system("cls");
 
     do {
         // Menú de opciones
@@ -85,6 +89,14 @@ int main() {
             default:
                 cout << "Opcion no valida. Por favor, elija una opcion del 1 al 5." << endl;
         }
+
+        /*
+            Realizamos una pausa para que el usuario pueda ver la respuesta antes de volver
+            al menú principal
+        */
+       cout << "Presione Enter para continuar...";
+       cin.ignore(); // Limpiamos el buffer del teclado
+       cin.get(); // Esperamos a que el usuario presione la tecla ENTER.
 
     } while(opc != 5);
 
