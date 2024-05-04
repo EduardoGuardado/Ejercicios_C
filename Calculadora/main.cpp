@@ -1,26 +1,27 @@
 #include <iostream>
+#include <cmath> // Añadimos la librería cmath para utilizar las funciones pow() y sqrt()
 
 using namespace std;
 
 // Funciones para realizar las operaciones matemáticas
 
 // SUMA
-int Suma(int n1, int n2) {
+double Suma(double n1, double n2) {
     return n1 + n2;
 }
 
 // RESTA
-int Resta(int n1, int n2) {
+double Resta(double n1, double n2) {
     return n1 - n2;
 }
 
 // MULTIPLICACIÓN
-int Multiplicacion(int n1, int n2) {
+double Multiplicacion(double n1, double n2) {
     return n1 * n2;
 }
 
 // DIVISIÓN
-int Division(int n1, int n2) {
+double Division(double n1, double n2) {
     // Evaluamos que el usuario no divida entre cero para evitar errores
     if (n2 != 0)
         return n1 / n2;
@@ -30,9 +31,21 @@ int Division(int n1, int n2) {
     }
 }
 
+// ELEVAR A UNA POTENCIA
+double Potencia(double base, double exponente){
+    return pow(base, exponente);
+}
+
+// RAÍZ CUADRADA DE UN NÚMERO
+double RaizCuadrada(double num){
+    return sqrt(num);
+}
+
 int main() {
     // Nuestras variables de trabajo para las operaciones
-    int num1, num2, opc, res;
+    double num1, num2, res = 0;
+    // Variable para elejir una de las opciones
+    int opc = 0;
 
     // Limpiamos la pantalla para mantener estático el menú
     system("cls");
@@ -44,7 +57,9 @@ int main() {
         cout << "=== 2. Resta" << endl;
         cout << "=== 3. Multiplicacion" << endl;
         cout << "=== 4. Division" << endl;
-        cout << "=== 5. Salir" << endl;
+        cout << "=== 5. Exponente" << endl;
+        cout << "=== 6. Raíz Cuadrada" << endl;
+        cout << "=== 7. Salir" << endl;
         cout << "===================" << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
@@ -84,6 +99,20 @@ int main() {
                 cout << "La division es: " << res << endl;
                 break;
             case 5:
+                cout << "Ingrese la base: ";
+                cin >> num1;
+                cout << "Ingrese el exponente: ";
+                cin >> num2;
+                res = Potencia(num1, num2);
+                cout << "La potencia es: " << res << endl;
+                break;
+            case 6:
+                cout << "Ingrese el numero: ";
+                cin >> num1;
+                res = RaizCuadrada(num1);
+                cout << "La raíz cuadrada de " << num1 << " es: " << res << endl;
+                break;
+            case 7:
                 cout << "Saliendo..." << endl;
                 break;
             default:
