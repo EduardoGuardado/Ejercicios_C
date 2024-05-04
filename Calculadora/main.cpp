@@ -41,6 +41,19 @@ double RaizCuadrada(double num){
     return sqrt(num);
 }
 
+// FACTORIAL DE UN NÚMERO
+double Factorial(double num){
+    double factorial = 1.0; // Inicializamos la variable para el número final del factorial
+    
+    // Creamos un bucle FOR para iterar en el número que proporcionamos para calcular el factorial
+    // Iniciando desde el final del factorial hasta el valor del número; contando desde uno.
+    for (int i = 1; i <= num; i++){
+        factorial *= i;
+    }
+
+    return factorial;
+}
+
 int main() {
     // Nuestras variables de trabajo para las operaciones
     double num1, num2, res = 0;
@@ -59,7 +72,8 @@ int main() {
         cout << "=== 4. Division" << endl;
         cout << "=== 5. Exponente" << endl;
         cout << "=== 6. Raíz Cuadrada" << endl;
-        cout << "=== 7. Salir" << endl;
+        cout << "=== 7. Factorial" << endl;
+        cout << "=== 8. Salir" << endl;
         cout << "===================" << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
@@ -113,6 +127,12 @@ int main() {
                 cout << "La raíz cuadrada de " << num1 << " es: " << res << endl;
                 break;
             case 7:
+                cout << "Ingrese el numero: ";
+                cin >> num1;
+                res = Factorial(num1);
+                cout << "El factorial de " << num1 << " es: " << res << endl;
+                break;
+            case 8:
                 cout << "Saliendo..." << endl;
                 break;
             default:
