@@ -2,13 +2,29 @@
 
 using namespace std;
 
+// Constante para definir el tamaño de nuestro arreglo
+const int TAMANO = 7;
+
+// El arreglo para realizar la búsqueda
+int datos[TAMANO];
+
+void agregarDatos(int n){
+    for(int i = 0; i < TAMANO; i++){
+        datos[i] = i * n; // Asigna los valores al arreglo
+    }
+    cout << "Los datos se han ingresado con exito!" << endl;
+}
+
+void mostrarDatos(){
+    cout << "El arreglo contiene la siguiente lista: ";
+    for(int i = 0; i < TAMANO; i++){
+        cout << datos[i] << " ";
+    }
+    cout << endl;
+    cout << "Los datos se han mostrado con exito!";
+}
+
 int main() {
-    // Constante para definir el tamaño de nuestro arreglo
-    const int TAMANO = 7;
-
-    // El arreglo para realizar la búsqueda
-    int datos[TAMANO];
-
     // Variables de trabajo
     int opc, num = 0;
 
@@ -30,18 +46,10 @@ int main() {
             case 1:
                 cout << "Ingrese la sucesion de datos a ingresar (conteo de 1, 2 o 3, etc...): ";
                 cin >> num;
-                for(int i = 0; i < TAMANO; i++){
-                    datos[i] = i * num; // Asigna los valores al arreglo
-                }
-                cout << "Los datos se han ingresado con exito!" << endl;
+                agregarDatos(num);
                 break;
             case 2:
-                cout << "El arreglo contiene la siguiente lista: ";
-                for(int i = 0; i < TAMANO; i++){
-                    cout << datos[i] << " ";
-                }
-                cout << endl;
-                cout << "Los datos se han mostrado con exito!";
+                mostrarDatos();
                 break;
             case 3:
                 cout << "Saliendo..." << endl;
