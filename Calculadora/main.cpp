@@ -147,7 +147,7 @@ int main() {
        cin.ignore(); // Limpiamos el buffer del teclado
        cin.get(); // Esperamos a que el usuario presione la tecla ENTER.
 
-    } while(opc != 5);
+    } while(opc != 8);
 
     return 0;
 }
