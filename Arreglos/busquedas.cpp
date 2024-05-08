@@ -2,15 +2,20 @@
 
 using namespace std;
 
+// Variables de trabajo
+int opc, num, aux = 0;
+
 // Constante para definir el tamaño de nuestro arreglo
 const int TAMANO = 7;
 
 // El arreglo para realizar la búsqueda
 int datos[TAMANO];
 
-void agregarDatos(int n){
+void agregarDatos(){
     for(int i = 0; i < TAMANO; i++){
-        datos[i] = i * n; // Asigna los valores al arreglo
+        cout << "Ingrese el numero para la posicion " << i << " en el arreglo: ";
+        cin >> num;
+        datos[i] = num; // Asigna los valores al arreglo
     }
     cout << "Los datos se han ingresado con exito!" << endl;
 }
@@ -21,22 +26,40 @@ void mostrarDatos(){
         cout << datos[i] << " ";
     }
     cout << endl;
-    cout << "Los datos se han mostrado con exito!";
+    cout << "Los datos se han mostrado con exito!" << endl;
+}
+
+// Algoritmo para realizar la busqueda dentro del arreglo
+void buscarNumero(){
+    // Le pido el numero al usuario
+    cout << "Ingrese el numero a buscar: ";
+    cin >> num;
+    // Defino el bucle para iterar dentro de cada posicion en el arreglo
+    for(int i = 0; i < TAMANO; i++){
+        // almaceno el dato existente en una variable auxiliar en cada vuelta de la posición en el arreglo
+        aux = datos[i];
+        // realizo una condición para identificar si el numero almacenado en la variable auxiliar corresponde a la busqueda
+        if(aux == num){
+            // si es verdadero muestro el resultado y termino el bucle.
+            cout << "Busqueda exitosa, el numero " << num << " se encontro en la posicion " << i << endl;
+            break;
+        } // de lo contrario deberá volver a realizar otra vuelta para seguir buscando.
+    }
+    cout << "La busqueda ha terminado con extiro!" << endl;
 }
 
 int main() {
-    // Variables de trabajo
-    int opc, num = 0;
-
-    // Limpiamos la pantalla para mantener estático el menú
-    system("cls");
 
     do {
+        // Limpiamos la pantalla para mantener estático el menú
+        system("cls");
+
         // Menú de opciones
         cout << "=== OPERACIONES CON ARREGLOS ===" << endl;
         cout << "=== 1. Añadir datos ordenados" << endl;
         cout << "=== 2. Ver datos del arreglo" << endl;
-        cout << "=== 3. Salir" << endl;
+        cout << "=== 3. Buscar un numero" << endl;
+        cout << "=== 4. Salir" << endl;
         cout << "================================" << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
@@ -44,14 +67,17 @@ int main() {
         // Al elejir una opción se realizará dicha operación
         switch(opc) {
             case 1:
-                cout << "Ingrese la sucesion de datos a ingresar (conteo de 1, 2 o 3, etc...): ";
-                cin >> num;
-                agregarDatos(num);
+                cout << "*** Ingrese 7 numeros de forma aleatoria a la lista ***" << endl;
+                agregarDatos();
                 break;
             case 2:
                 mostrarDatos();
                 break;
             case 3:
+                cout << "*** Busque un numero dentro del arreglo ***" << endl;
+                buscarNumero();
+                break;
+            case 4:
                 cout << "Saliendo..." << endl;
                 break;
             default:
@@ -66,7 +92,7 @@ int main() {
        cin.ignore(); // Limpiamos el buffer del teclado
        cin.get(); // Esperamos a que el usuario presione la tecla ENTER.
 
-    } while(opc != 3);
+    } while(opc != 4);
 
     return 0;
 }
