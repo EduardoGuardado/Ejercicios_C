@@ -1,27 +1,26 @@
 #include <iostream>
-#include <cmath> // Añadimos la librería cmath para utilizar las funciones pow() y sqrt()
 
 using namespace std;
 
 // Funciones para realizar las operaciones matemáticas
 
 // SUMA
-double Suma(double n1, double n2) {
+int Suma(int n1, int n2) {
     return n1 + n2;
 }
 
 // RESTA
-double Resta(double n1, double n2) {
+int Resta(int n1, int n2) {
     return n1 - n2;
 }
 
 // MULTIPLICACIÓN
-double Multiplicacion(double n1, double n2) {
+int Multiplicacion(int n1, int n2) {
     return n1 * n2;
 }
 
 // DIVISIÓN
-double Division(double n1, double n2) {
+int Division(int n1, int n2) {
     // Evaluamos que el usuario no divida entre cero para evitar errores
     if (n2 != 0)
         return n1 / n2;
@@ -32,9 +31,9 @@ double Division(double n1, double n2) {
 }
 
 // ELEVAR A UNA POTENCIA
-double Potencia(double base, double exponente){
+int Potencia(int base, int exponente){
     // Almaceno el valor de la base en una variable
-    double pot = base;
+    int pot = base;
     // Realizo una iteracion para la cantidad de veces que se multiplicara por si mismo
     // Utilizando el exponente como limite de la iteracion
     for(int i = 1; i < exponente; i++){
@@ -47,13 +46,39 @@ double Potencia(double base, double exponente){
 }
 
 // RAÍZ CUADRADA DE UN NÚMERO
-double RaizCuadrada(double num){
-    return sqrt(num);
+int RaizCuadrada(int num){
+    // Se crea la variable MODULO para almacenar el valor de la operación módulo entre el número y el contador
+    int modulo = 0;
+    // Se crea la variable CONTADOR para ir disminuyendo el valor del número a calcular su raiz cuadrada
+    int contador = 0;
+    // Se crea la variable que almacenará el resultado que comprueba si el número encontrado es un cuadrado del número que se busca su raíz
+    int resultado = 0;
+
+    // Inicializamos el contador con el valor del número a buscar su raíz cuadrada
+    contador = num;
+
+    // Creamos un ciclo para realizar las operaciones que permitirán encontrar el valor de la raíz cuadrada
+    while(resultado != num){
+        // Disminuímos el contador
+        contador--;
+
+        // Obtenemos el módulo del número a obtener la raíz
+        modulo = num % contador;
+
+        // Comprobamos que el módulo de esa operación sea CERO
+        if(modulo == 0){
+            // Realizamos la operación para saber si el valor en la posición en que se encuentra el contador
+            // es igual a el número del cual se solicita la raíz cuadrada.
+            resultado = contador * contador; // De ser así mostramos ese número que sería la raíz cuadrada
+        }
+        // De lo contrario volvemos a iterar hasta encontrar el número.
+    }
+    return contador;
 }
 
 // FACTORIAL DE UN NÚMERO
-double Factorial(double num){
-    double factorial = 1.0; // Inicializamos la variable para el número final del factorial
+int Factorial(int num){
+    int factorial = 1.0; // Inicializamos la variable para el número final del factorial
     
     // Creamos un bucle FOR para iterar en el número que proporcionamos para calcular el factorial
     // Iniciando desde el final del factorial hasta el valor del número; contando desde uno.
@@ -66,7 +91,7 @@ double Factorial(double num){
 
 int main() {
     // Nuestras variables de trabajo para las operaciones
-    double num1, num2, res = 0;
+    int num1, num2, res = 0;
     // Variable para elejir una de las opciones
     int opc = 0;
 
