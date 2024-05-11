@@ -33,7 +33,17 @@ double Division(double n1, double n2) {
 
 // ELEVAR A UNA POTENCIA
 double Potencia(double base, double exponente){
-    return pow(base, exponente);
+    // Almaceno el valor de la base en una variable
+    double pot = base;
+    // Realizo una iteracion para la cantidad de veces que se multiplicara por si mismo
+    // Utilizando el exponente como limite de la iteracion
+    for(int i = 1; i < exponente; i++){
+        // Realizo la multiplicacion del exponente por su valor original
+        // Y lo almaceno en la misma variable para devolver el resultado
+        base = base * pot;
+    }
+    // Devolvemos el resultado del exponente
+    return base;
 }
 
 // RAÍZ CUADRADA DE UN NÚMERO
