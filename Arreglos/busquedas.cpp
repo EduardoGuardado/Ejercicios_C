@@ -48,6 +48,42 @@ void buscarNumero(){
     cout << "La busqueda ha terminado con extiro!" << endl;
 }
 
+// Ordenamiento burbuja
+void ordenarLista(){
+    // Variables de trabajo para el ordenamiento
+    int temp = 0;
+    // Mostramos la lista de numeros desordenada
+    cout << "El arreglo contiene la siguiente lista desordenada: ";
+    for(int i = 0; i < TAMANO; i++){
+        cout << datos[i] << " ";
+    }
+    cout << "\n" << endl;
+
+    // Creamos el algoritmo que ordenara la lista
+    cout << "Ordenando la lista...\n" << endl;
+    // Comenzamos recorriendo el arreglo desde la posicion cero
+    for(int i = 0; i < TAMANO - 1; i++){
+            // Recorremos el arreglo una posicion antes de la primera
+            for(int j = 0; j < TAMANO - i - 1; j++){
+                // Comprobamos que el arrelgo en la posicion actual sea mayor a la siguiente
+                if(datos[j] > datos[j + 1]){
+                    // De ser asi almacenamos ese valor en una variable temporal
+                    temp = datos[j];
+                    // Intercambiamos el valor de la posicion siguiente a la posicion actual
+                    datos[j] = datos[j + 1];
+                    // Asignamos el valor de la posicion actual a la siguiente posicion
+                    datos[j + 1] = temp;
+                }
+            }
+    }
+
+    cout << "La lista se ha ordenado de forma ascendente: ";
+    for(int i = 0; i < TAMANO; i++){
+        cout << datos[i] << " ";
+    }
+    cout << endl;
+}
+
 int main() {
 
     do {
@@ -59,7 +95,8 @@ int main() {
         cout << "=== 1. Añadir datos ordenados" << endl;
         cout << "=== 2. Ver datos del arreglo" << endl;
         cout << "=== 3. Buscar un numero" << endl;
-        cout << "=== 4. Salir" << endl;
+        cout << "=== 4. Ordenar lista" << endl;
+        cout << "=== 5. Salir" << endl;
         cout << "================================" << endl;
         cout << "Elija una opcion: ";
         cin >> opc;
@@ -78,6 +115,10 @@ int main() {
                 buscarNumero();
                 break;
             case 4:
+                cout << "*** Ordenando de forma ascendente la lista de numeros ***" << endl;
+                ordenarLista();
+                break;
+            case 5:
                 cout << "Saliendo..." << endl;
                 break;
             default:
@@ -92,7 +133,7 @@ int main() {
        cin.ignore(); // Limpiamos el buffer del teclado
        cin.get(); // Esperamos a que el usuario presione la tecla ENTER.
 
-    } while(opc != 4);
+    } while(opc != 5);
 
     return 0;
 }
